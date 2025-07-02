@@ -21,9 +21,9 @@ pipeline{
                         type: 'war'
                         ]
                     ],
-                        credentialsId: 'nexus_credential',
-                        groupId: 'com.bookstore',
-                        nexusUrl: '54.221.130.78:8081/',
+                        credentialsId: 'nexuscred',
+                        groupId: 'onlinebookstore',
+                        nexusUrl: 'http://13.201.228.238/:8081/',
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'maven-snapshots',

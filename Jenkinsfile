@@ -33,7 +33,7 @@ pipeline{
         stage('deploy') {
     steps {
         step([$class: 'DeployPublisher',
-            adapters: [[$class: 'Tomcat10xAdapter',
+            adapters: [[$class: 'Tomcat9xAdapter',
                 credentialsId: 'tomcatcred',
                 url: 'http://3.110.209.60:8080']],
             contextPath: '/',

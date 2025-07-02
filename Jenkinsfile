@@ -18,7 +18,7 @@ pipeline{
                     [
                         artifactId: 'onlinebookstore', 
                         classifier: '', 
-                        file: '/var/lib/jenkins/workspace/webapplication/target/onlinebookstore-0.0.1-SNAPSHOT.war', 
+                        file: '/var/lib/jenkins/workspace/tomcat java app/target/onlinebookstore-0.0.1-SNAPSHOT.war', 
                         type: 'war'
                         ]
                     ], 

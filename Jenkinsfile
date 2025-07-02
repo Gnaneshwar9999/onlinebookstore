@@ -22,7 +22,7 @@ pipeline{
                         type: 'war'
                         ]
                     ], 
-                        credentialsId: 'Nexus', 
+                        credentialsId: 'nexuscred', 
                         groupId: 'onlinebookstore', 
                         nexusUrl: '13.201.228.238:8081', 
                         nexusVersion: 'nexus3', 

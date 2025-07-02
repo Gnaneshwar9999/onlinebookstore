@@ -34,8 +34,8 @@ pipeline{
     steps {
         step([$class: 'DeployPublisher',
             adapters: [[$class: 'Tomcat9xAdapter',
-                credentialsId: 'tomcat_cred_id',
-                url: 'http://54.221.130.78:8082']],
+                credentialsId: 'tomcatcred',
+                url: 'http://3.110.209.60:8082']],
             contextPath: '/',
             war: 'target/onlinebookstore-0.0.1-SNAPSHOT.war'
         ])

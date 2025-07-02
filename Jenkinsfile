@@ -1,46 +1,50 @@
-pipeline{
+pipeline {
     agent any
 
-    stages{
-        stage('scm'){
-            steps{
+    stages {
+        stage('scm') {
+            steps {
                 checkout scm
             }
         }
-        stage('build'){
-            steps{
+
+        stage('build') {
+            steps {
                 sh 'mvn clean install'
             }
         }
-        stage('nexus'){
-            steps{
+
+        stage('nexus') {
+            steps {
                 nexusArtifactUploader artifacts: [
                     [
                         artifactId: 'onlinebookstore', 
                         classifier: '', 
                         file: '/var/lib/jenkins/workspace/tomcat java app/target/onlinebookstore-0.0.1-SNAPSHOT.war', 
                         type: 'war'
-                        ]
-                    ], 
-                        credentialsId: 'nexuscred', 
-                        groupId: 'onlinebookstore', 
-                        nexusUrl: '13.201.228.238:8081', 
-                        nexusVersion: 'nexus3', 
-                        protocol: 'http', 
-                        repository: 'maven-snapshots', 
-                        version: '0.0.1-SNAPSHOT'
+                    ]
+                ], 
+                credentialsId: 'nexuscred', 
+                groupId: 'onlinebookstore', 
+                nexusUrl: '13.201.228.238:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'maven-snapshots', 
+                version: '0.0.1-SNAPSHOT'
             }
         }
-        stage('deploy'){
-            steps{
+
+        stage('deploy') {
+            steps {
                 deploy adapters: [
                     tomcat9(
-                        credentialsId: 'tomcatcred', 
-                        path: '', 
-                        url: 'http://3.110.209.60:8080/:8090/')
-                        ], 
-                        contextPath: null, 
-                        war: '**/*.war'
+                        credentialsId: 'tomcatcred',
+                        path: '',
+                        url: 'http://3.110.209.60:8080/manager/text'
+                    )
+                ],
+                contextPath: null,
+                war: '**/*.war'
             }
         }
     }

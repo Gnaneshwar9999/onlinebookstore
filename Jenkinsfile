@@ -37,7 +37,7 @@ pipeline {
         stage('deploy') {
             steps {
                 deploy adapters: [
-                    tomcat11(
+                    tomcat9(
                         credentialsId: 'tomcatcred',
                         path: '',
                         url: 'http://3.110.209.60:8080/manager/text'

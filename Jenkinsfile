@@ -24,7 +24,7 @@ pipeline{
                     ], 
                         credentialsId: 'Nexus', 
                         groupId: 'onlinebookstore', 
-                        nexusUrl: '43.205.235.141:8081', 
+                        nexusUrl: '13.201.228.238:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'onlinebookstores', 
